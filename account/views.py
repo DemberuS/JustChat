@@ -23,10 +23,12 @@ def register_view(request, *args, **kwargs):
             if destination:
                 return redirect(destination)
             return redirect('home')
-
         else:
-            context['registration_form' ] = form
+            context['registration_form'] = form
 
+    else:
+        form = RegistrationForm()
+        context['registration_form'] = form
     return render(request, 'account/register.html', context)
 
 
@@ -43,6 +45,7 @@ def login_view(request, *args, **kwargs):
         return redirect('home')
 
     destination = get_redirect_if_exists(request)
+
     if request.POST:
         form = AccountAuthenticationForm(request.POST)
         if form.is_valid():
@@ -55,8 +58,11 @@ def login_view(request, *args, **kwargs):
                 if destination:
                     return redirect(destination)
                 return redirect('home')
-            else:
-                context['login_form'] = form
+    else:
+        form = AccountAuthenticationForm()
+
+    context['login_form'] = form
+
     return render(request, 'account/login.html', context)
 
 
