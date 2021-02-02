@@ -11,6 +11,14 @@
             <input type="text" class="form-control" name="q" id="id_q_large" placeholder="Поиск...">
         </form>
 
+
+        <!-- admin btn for easier access -->
+        <h5 class="mr-3 font-weight-normal justify-content-start">
+            <a class="p-2" href="admin/">Admin</a>
+        </h5>
+        <!-- -->
+
+
         <div class="d-flex flex-row-reverse flex-grow-1">
             <nav class="">
                 {% if request.user.is_authenticated %}
