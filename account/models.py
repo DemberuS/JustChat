@@ -40,7 +40,7 @@ def get_profile_image_filepath(self, filename):
 
 
 def get_default_profile_image():
-    return "img/logo_1080x1080.png"
+    return "img/default_profile_image.png"
 
 
 class Account(AbstractBaseUser):
